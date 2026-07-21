@@ -5,11 +5,11 @@
     root.dataset.language = language;
     root.lang = language;
     buttons.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.languageButton === language)));
-    try { localStorage.setItem('sunriserise-legal-language', language); } catch (_) {}
+    try { localStorage.setItem('sunriserise-legal-language-v2', language); } catch (_) {}
   };
   buttons.forEach((button) => button.addEventListener('click', () => setLanguage(button.dataset.languageButton)));
   try {
-    const stored = localStorage.getItem('sunriserise-legal-language');
+    const stored = localStorage.getItem('sunriserise-legal-language-v2');
     setLanguage(stored === 'ko' || stored === 'en' ? stored : 'en');
   } catch (_) {
     setLanguage('en');
