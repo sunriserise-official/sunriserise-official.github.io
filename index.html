@@ -273,8 +273,9 @@
       buttons.forEach((button) => button.addEventListener('click', () => setLanguage(button.dataset.languageButton)));
       try {
         const stored = localStorage.getItem('sunriserise-legal-language');
-        const preferred = navigator.language && navigator.language.toLowerCase().startsWith('ko') ? 'ko' : 'en';
-        setLanguage(stored === 'ko' || stored === 'en' ? stored : preferred);
+        // The public site is global-first: English is the default regardless of
+        // the browser locale. A visitor's explicit language choice is retained.
+        setLanguage(stored === 'ko' || stored === 'en' ? stored : 'en');
       } catch (_) {}
     </script>
   </body>
